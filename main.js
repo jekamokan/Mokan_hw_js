@@ -14,9 +14,11 @@ if(newValue){
 
 }else if(task =='String: lexics'){
 
-const text = prompt('Введіть будь який текст(ЗАБОРОНЕНІ СЛОВА!!!: карамболь, струмінь');
+const text = prompt('Введіть будь який текст(ЗАБОРОНЕНІ СЛОВА!!!: карамболь, струмінь') || '';
 console.log(text);
-if(text.includes('карамболь')){
+if(text==''){
+    alert('Введіть текст')
+} else if(text.includes('карамболь')){
     alert('Ви використали заборонені слова')
 } else if(text.includes('струмінь')){
     alert('Ви використали заборонені слова')
