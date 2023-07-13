@@ -328,6 +328,51 @@
 
 // Function Capitalize
 
-// let str = "cANBerRa"
-// let result
-// console.log(result) //Canberra
+// const capitalize = str => {
+    
+//     result = str[0].toUpperCase() + str.slice(1).toLowerCase();
+//     return result //саме цей код забезпечить повернення результату функції
+// }
+// console.log(capitalize("cANBerRa")); //Canberra
+
+
+
+
+// Map Capitalize
+
+// const capitalize = str => {
+    
+//     result = str[0].toUpperCase() + str.slice(1).toLowerCase();
+//     return result //саме цей код забезпечить повернення результату функції
+// }
+// const text = prompt('Введіть будь яке речення');
+// const arrText = text.split(" ");
+// const arrTextUpper = arrText.map(x => capitalize(x));
+// alert(` Your new string ${arrTextUpper.join(" ")}`)
+
+
+
+
+// Filter Lexics
+
+// const stopWords = ['apple', 'banana', 'peach'];
+// const text = prompt('Введіть будь який текст');
+// const newText = text.split(" ");
+// const withOutWords = newText.filter(word => !stopWords.includes(word));
+// const result = withOutWords.join(" ");
+// console.log(result);
+
+
+
+
+// Beep Lexics
+
+// const stopWords = ['apple', 'banana', 'peach'];
+// const text = prompt('Введіть будь який текст');
+// const newText = text.split(" ");
+// const filterText = newText.map(word => stopWords.includes(word) ? "BEEP" : word);
+// const result = filterText.join(" ");
+// console.log(result);
+
+
+
