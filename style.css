@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000002c;
+}
+.slider div{
+    width: 400px;
+    height: 400px;
+}
+img{
+    width: 100%;
+}
