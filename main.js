@@ -46,7 +46,6 @@ const updateStorage = person => {
   }
 };
 
-
 const generateNewPerson = () => {
   const result = classNames.reduce((acc, item) => {
     const value = getClass(item).value;
@@ -73,13 +72,9 @@ const handleSaveButtonClick = () => {
   valueHeight.innerText = newPerson.height + 'cm';
   valueAge.innerText = totalAge + 'лет';
   valuePeople.innerText = people.length;
-  
 };
 
 button.addEventListener('click', handleSaveButtonClick);
-
-
-
 
 let tallestPerson;
 let maxHeight = 0;
@@ -92,6 +87,5 @@ for (const person of people) {
   }
 }
 
-  
 resetBtn.addEventListener('click', () => localStorage.removeItem('people'));
 
