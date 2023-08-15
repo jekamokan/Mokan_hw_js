@@ -5,19 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div class="slider">
-        <div><img src="./images/1.jpg" alt="Image 1"></div>
-        <div><img src="./images/2.jpg" alt="Image 2"></div>
-        <div><img src="./images/3.jpg" alt="Image 3"></div>
-      </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <form>
+                    <div class="swiper-item-box">
+                        <label for="email" class="swiper__lable-email">Email</label>
+                        <input class="email" type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="swiper-item-box">
+                        <label for="password" class="swiper__lable-password">Password</label>
+                        <input class="password" type="password" name="password" placeholder="Password">
+                    </div>
+                </form>
+                <button class="swiper-btn-first">Send</button>
+            </div>
+            <div class="swiper-slide">
+                <form>
+                    <div class="swiper-item-box">
+                        <label for="bdate" class="swiper__lable-birthday">Birthday</label>
+                        <input class="birthday" type="date" name="bdate" placeholder="Birthday">
+                    </div>
+                    <div class="swiper-item-box">
+                        <label for="sex" class="swiper__lable-sex">Sex</label>
+                        <input class="sex" type="text" name="sex" placeholder="Sex">
+                    </div>
+                    <div class="swiper-item-box">
+                        <label for="name" class="swiper__lable-name">Name</label>
+                        <input class="name" type="text" name="name" placeholder="Name">
+                    </div>
+                </form>
+                <button class="swiper-btn-second">Send</button>
+            </div>
+            <div class="swiper-slide">
+                <form>
+                    <div class="swiper-item-box">
+                        <label for="zodiac" class="swiper__lable-zodiac">Sign of the zodiac</label>
+                        <input class="zodiac" type="text" name="zodiac" placeholder="Zodiac">
+                    </div>
+                    <div class="swiper-item-box">
+                        <label for="age" class="swiper__lable-age">Age</label>
+                        <input class="age" type="number" name="age" placeholder="Age">
+                    </div>
+                    <div class="swiper-item-box">
+                        <label for="height" class="swiper__lable-height">Height</label>
+                        <input class="height" type="number" name="height" placeholder="Height">
+                    </div>
+                </form>
+                <button class="swiper-btn-third">Send</button>
+            </div>
+            <div class="swiper-slide">
+                <ul class="swiper-slide-list">
+                    <li class="swiper-name-height"></li>
+                    <li class="swiper-value-height"></li>
+                </ul>
+                <ul class="swiper-slide-list">
+                    <li> Общий возраст людей</li>
+                    <li class="swiper-value-age"></li>
+                </ul>
+                <ul class="swiper-slide-list">
+                    <li> Количество людей</li>
+                    <li class="swiper-value-people"></li>
+                </ul>
+                <button class="reset">Reset data</button>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./main.js"></script>
 </body>
 
