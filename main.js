@@ -19,30 +19,26 @@
 class BoxElementManager {
     constructor() {
         this.elements = document.querySelectorAll('.box__element');
-        this.count = 0;
+        this.COUNT = 0;
         this.btn = document.querySelector('.btn');
         this.text = document.querySelector('.text');
 
         this.elements.forEach(element => {
             element.addEventListener('click', () => this.toggleElement(element));
         });
-
         this.btn.addEventListener('click', () => {
-            this.count = 0;
+            this.COUNT = 0;
             this.elements.forEach(element => {
                 if (element.classList.contains('box__element--active')) {
-                    this.count++;
+                    this.COUNT++;
                 }
             });
-            this.text.innerHTML = this.count;
+            this.text.innerHTML = this.COUNT;
         });
     }
-
     toggleElement(element) {
         element.classList.toggle('box__element--active');
     }
 }
-
 const boxElementManager = new BoxElementManager();
-// Мы создаем новый объект, который наследует свойства и методы, определенные в этом классе.
-// И мы будем иметь доступ ко всем методам и свойствам, которые определены в классе `BoxElementManager`. 
+
