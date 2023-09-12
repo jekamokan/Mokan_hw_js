@@ -2,22 +2,26 @@ const getCLass = (el) => document.querySelectorAll('.' + el);
 const url = 'https://swapi.dev/api/planets/';
 const planetName = getCLass('list__item-title');
 const heroName = getCLass('list__item-heroes');
-const cardBtns = document.querySelectorAll('.list__item-btn');
+const cardBtns = getCLass('list__item-btn');
 const planetData = {};
 const heroesData = {};
 
 
+// const getPlanets = async () => {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     console.log(data);
+//     const allPlanets = data.results;
+//     console.log(allPlanets);
+//     return allPlanets
+// }
+
 const getPlanets = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    const allPlanets = data.results;
-    console.log(allPlanets);
-    return allPlanets
+    return await fetch(url).then(res => res.json()).then(data => data.results)   
 }
 
 const addPlanetName = (arr) => {
     arr.forEach((element, index) => {
-        console.log(element.name);
         planetName[index].innerText = element.name;
     });
 }
@@ -25,21 +29,20 @@ const addPlanetName = (arr) => {
 const getFilmsCollection = async (planet) => {
     const filmsUrls = planet.films;
     const filmPromises = filmsUrls.map(async (filmUrl) => {
-        const response = await fetch(filmUrl);
-        const filmData = await response.json();
-        return filmData.title;
+        return await fetch(filmUrl)
+        .then(filmData =>filmData.json())
+        .then(data => data.title)
     });
 
     const films = await Promise.all(filmPromises);
     planetData[planet.name] = films;
 };
 
+
 const getHeroesCollection = async (hero) => {
     const heroUrls = hero.residents;
     const heroPromises = heroUrls.map(async (heroUrl) => {
-        const response = await fetch(heroUrl);
-        const heroData = await response.json();
-        return heroData.name;
+        return await fetch(heroUrl).then(response => response.json()).then(heroData => heroData.name)
     });
 
     const heros = await Promise.all(heroPromises);
@@ -51,9 +54,10 @@ const createFilmsAndHeroesInCard = () => {
     planetName.forEach((el, index) => {
         const planetNameText = el.textContent;
         const currentFilms = planetData[planetNameText];
+        console.log(currentFilms);
         const filmElement = document.querySelectorAll('.list__item-films')[index];
         const heroElement = document.querySelectorAll('.list__item-heroes')[index];
-
+        
         if (currentFilms && currentFilms.length > 0) {
             filmElement.innerText = currentFilms.join(', ' + '\n');
         } else {
