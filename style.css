@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    background: url('./bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+img{
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    padding: 100px 0;
+}
+li{
+    width: 100px;
+    list-style: none;
+    flex-basis: 20%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+.list__item-wrapper{
+    display: none;
+}
+
+.list__item{
+    display: flex;
+    flex-direction: column;
+    height: 300px; 
+    overflow: hidden;
+    
+}
+.active--li{
+    height: auto;
+    }
+    .active--wrapper{
+    display: block;
+    }
+.list__item-title{
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+.list__item-films{
+    font-style: italic;
+    font-size: 14px;
+    border-top: 1px solid black;
+    margin-bottom: 10px;
+}
+.list__item-btn{
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 10px auto;
+    margin-top: auto;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px #cccccc;
+    border: none;
+    cursor: pointer;
+}
+.list__item-btn::after,
+.list__item-btn::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+}
+.list__item-btn::before{
+    top: 50%;
+    left: 9px;
+    transform: rotate(45deg);
+}
+.list__item-btn::after{
+    top: 50%;
+    right: 9px;
+    transform: rotate(315deg);
+}
+.active--btn::after{
+    transform: rotate(410deg);
+}
+.active--btn::before{
+    transform: rotate(130deg);
+}
+.list__item-heroes{
+    border-top: 1px solid black;
+    margin-bottom: 10px;
+}
+.list__item-planet{
+    animation: around 15s linear infinite;
+}
+@keyframes around {
+    from {
+      transform: rotate(0deg); 
+    }
+    to {
+      transform: rotate(360deg); 
+    }
+  }
