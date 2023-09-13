@@ -29,9 +29,7 @@ const addPlanetName = (arr) => {
 const getFilmsCollection = async (planet) => {
     const filmsUrls = planet.films;
     const filmPromises = filmsUrls.map(async (filmUrl) => {
-        return await fetch(filmUrl)
-        .then(filmData =>filmData.json())
-        .then(data => data.title)
+        return await fetch(filmUrl).then(filmData =>filmData.json()).then(data => data.title)
     });
 
     const films = await Promise.all(filmPromises);
