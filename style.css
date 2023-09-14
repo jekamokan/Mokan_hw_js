@@ -17,3 +17,10 @@ tr td:nth-child(3) {
 td{
     width: 200px;
 }
+button,
+input{
+    padding: 5px 10px;
+}
+div{
+    margin-bottom: 5px;
+}

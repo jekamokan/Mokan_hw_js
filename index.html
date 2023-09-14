@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <input class="email" type="email" placeholder="Email">
-    <input class="password" type="password" placeholder="Password">
-    <button class="btn" onclick="register()">SEND</button>
+    <div class="registration">
+        <input class="email" type="email" placeholder="Email">
+        <input class="password" type="password" placeholder="Password">
+        <button class="btn" onclick="register()">REGISTRATION</button>
+    </div>
+    <div class="user-info">
+        <input class="id" type="number" placeholder="Enter ID">
+        <input class="img-url" type="text" placeholder="IMG-url">
+        <button class="btn" onclick="sendData()" >SEND DATA</button>
+    </div>
+    <button class="show" onclick="showUsers()">SHOW USERS</button>
     <div class="wrapper"></div>
     <script src="./main.js"></script>
 </body>
