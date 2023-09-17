@@ -1,11 +1,8 @@
 const tableContainer = document.querySelector('.wrapper');
-const jwtToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3N0YWdlLXR3by5pLXdwLWRldi5jb20vIiwiYXVkIjoiaHR0cHM6Ly9zdGFnZS10d28uaS13cC1kZXYuY29tLyIsImlhdCI6MTM1Njk5OTUyNCwibmJmIjoxMzU3MDAwMDAwLCJkYXRhIjp7ImlkIjoyNSwidXNlcl9lbWFpbCI6InRlc3R1c2VyMUBnbWFpbC5jb20iLCJ1c2VyX3Bhc3MiOiIhMVFhendzeCJ9fQ.X_ptLW3G0tMiLLEBgqFxQv1EXz6TOcFPWDYVHwBEUzo"
+const jwtToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3N0YWdlLXR3by5pLXdwLWRldi5jb20vIiwiYXVkIjoiaHR0cHM6Ly9zdGFnZS10d28uaS13cC1kZXYuY29tLyIsImlhdCI6MTM1Njk5OTUyNCwibmJmIjoxMzU3MDAwMDAwLCJkYXRhIjp7ImlkIjozMCwidXNlcl9lbWFpbCI6InBlcnNvbmUxQGdtYWlsLmNvbSIsInVzZXJfcGFzcyI6IiExUWF6d3N4In19.324VRmi6ty_Mnl4O9T2DuwzuohDp52E0Yw_N5F5bc0M"
 
 function createTableFromData(data) {
-    // Создаем элемент таблицы
     const table = document.createElement('table');
-
-    // Создайте заголовок таблицы (если нужно)
     const tableHeader = document.createElement('thead');
     const headerRow = document.createElement('tr');
     for (const key in data[0]) {
@@ -16,7 +13,6 @@ function createTableFromData(data) {
     tableHeader.appendChild(headerRow);
     table.appendChild(tableHeader);
 
-    // Создайте строки и ячейки данных
     const tableBody = document.createElement('tbody');
     data.forEach(item => {
         const row = document.createElement('tr');
@@ -28,7 +24,6 @@ function createTableFromData(data) {
         tableBody.appendChild(row);
     });
     table.appendChild(tableBody);
-
     return table;
 }
 
@@ -40,37 +35,28 @@ function register() {
         password: password
     };
     fetch('https://stage-two.i-wp-dev.com/wp-json/v4/registration', {
-
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' //цей заголовок вказує на тип переданого контенту
         },
         body: JSON.stringify(data) //передача JSON-рядка у тілі запиту
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        });
-
+    }).then(response => response.json())
 }
 
 function showUsers() {
+    if (tableContainer.firstChild) {
+        tableContainer.removeChild(tableContainer.firstChild);
+    }
     fetch('https://stage-two.i-wp-dev.com/wp-json/v4/users', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${jwtToken}`
         },
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-
+    }).then(response => response.json()).then(data => {
             const table = createTableFromData(data);
             tableContainer.appendChild(table);
         })
 }
-
-
 
 function sendData() {
     const userId = document.querySelector('.id').value;
@@ -85,13 +71,8 @@ function sendData() {
             'Authorization': `Bearer ${jwtToken}`,
             'Content-Type': 'application/json'
         },
-
         body: JSON.stringify(changeAvatar)
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
+    }).then(response => response.json())
 }
 
 
