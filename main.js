@@ -44,8 +44,7 @@ BTN.addEventListener('click', () => {
     shouldAdvanceProgressBar ? forChangeProgressBar.next() : '' ; // Продвигаем прогресс-бар только если не было совпадений
     
     const includesFontSize = Array.from(WRAPPER.childNodes).every(paragraph => paragraph.style.fontSize === FONT_SIZE);
-    // includesFontSize ? resetProgressBar('Вы выиграли') : '';
+
     includesFontSize ? setTimeout(() => resetProgressBar('Вы выиграли'), 1000) : '';
-    
     (currentValue >= 100) ? setTimeout(() => resetProgressBar('Вы проиграли'), 1000) : '' ;
 });
